@@ -1,7 +1,11 @@
 #include <iostream>
+#include "Header/ConfigParser.h"
 
 int main()
 {
-	std::cout << "Hello World" << std::endl;
+
+	// Create ConfigParser
+	ConfigParser *CP = new ConfigParser;
+
 	return 0;
 }
