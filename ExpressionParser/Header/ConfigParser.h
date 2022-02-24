@@ -6,6 +6,10 @@
 #include <yaml-cpp/yaml.h>
 #include <iostream>
 
+#include "Evaluator.h"
+#include "Node.h"
+
+
 class ConfigParser
 {
 
@@ -13,9 +17,10 @@ public:
 	ConfigParser();
 
 private:	
-	void parseyaml(const YAML::Node& node);
+	void parseyaml(const YAML::Node& node, int level); 
 	void checkValidKey(const YAML::Node& node);
 	YAML::Node config;
+	Evaluator evaluator;
 
 };
 

@@ -3,8 +3,9 @@
 ConfigParser::ConfigParser()
 	: config(YAML::LoadFile("config.yaml"))
 {
+	
 	try {
-		parseyaml(config);
+		parseyaml(config, 0);
 	}
 	catch (const std::exception& e)
 	{
@@ -12,22 +13,37 @@ ConfigParser::ConfigParser()
 		throw e;
 	}
 	std::cout << "successfully parsed yaml" << std::endl;
+
+	evaluator.stack_print();
 }
 
 // Recursively called to get deepest root
-void ConfigParser::parseyaml(const YAML::Node &node)
+void ConfigParser::parseyaml(const YAML::Node &node, int level)
 {
-	std::cout << "[" << node << "]" << std::endl;
+	//std::cout << "[" << node << "]" << std::endl;
 
 	// check valid assignments 
 	checkValidKey(node);
-	if (node["exp1"].IsMap()) {
+	
+	// Prepare new node
+	std::string expr1 = "Expect1";
+	std::string expr2 = "Expect2";
+	std::vector<std::string> expr_list;
+	if (!node["exp1"].IsMap()) expr1 = node["exp1"].as<std::string>();
+	if (!node["exp2"].IsMap()) expr2 = node["exp2"].as<std::string>();
+	expr_list.push_back(expr1); expr_list.push_back(expr2);
+	std::string node_operator = node["cond"].as<std::string>();
+	evaluator.push_stk(new Node(expr_list, node_operator, level));
+	// Begin recursive calls
+	if (node["exp1"].IsMap()) 
+	{
 		const YAML::Node temp = node["exp1"];
-		parseyaml(temp);
+		parseyaml(temp, level + 1);
 	}
-	if (node["exp2"].IsMap()) {
+	if (node["exp2"].IsMap()) 
+	{
 		const YAML::Node temp = node["exp2"];
-		parseyaml(temp);
+		parseyaml(temp, level + 1);
 	}
 }
 
