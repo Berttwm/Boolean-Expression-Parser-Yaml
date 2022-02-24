@@ -165,9 +165,13 @@
   <ItemGroup>
     <ClCompile Include="ConfigParser.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Node.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\ConfigParser.h" />
+    <ClInclude Include="Header\Evaluator.h" />
+    <ClInclude Include="Header\Node.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

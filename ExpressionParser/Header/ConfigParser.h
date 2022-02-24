@@ -13,8 +13,8 @@ public:
 	ConfigParser();
 
 private:	
-	void parseyaml();
-	void checkValidKey();
+	void parseyaml(const YAML::Node& node);
+	void checkValidKey(const YAML::Node& node);
 	YAML::Node config;
 
 };
