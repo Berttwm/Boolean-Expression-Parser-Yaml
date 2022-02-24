@@ -8,6 +8,8 @@ class Evaluator {
 public:
 	Evaluator();
 
+	void evaluate();
+
 	// Stack operations
 	void push_stk(Node *node);
 	Node *pop_stk();

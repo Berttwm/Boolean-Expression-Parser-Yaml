@@ -3,8 +3,8 @@
 ConfigParser::ConfigParser()
 	: config(YAML::LoadFile("config.yaml"))
 {
-	
-	try {
+	try 
+	{
 		parseyaml(config, 0);
 	}
 	catch (const std::exception& e)
@@ -12,9 +12,10 @@ ConfigParser::ConfigParser()
 		std::cout << e.what() << std::endl;
 		throw e;
 	}
-	std::cout << "successfully parsed yaml" << std::endl;
+	std::cout << "successfully parsed yaml, evaluator stack successfully initialized" << std::endl;
 
-	evaluator.stack_print();
+	// evaluator.stack_print(); // use to print stack information
+
 }
 
 // Recursively called to get deepest root
