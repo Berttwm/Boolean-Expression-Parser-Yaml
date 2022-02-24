@@ -21,7 +21,7 @@ ConfigParser::ConfigParser()
 // Recursively called to get deepest root
 void ConfigParser::parseyaml(const YAML::Node &node, int level)
 {
-	//std::cout << "[" << node << "]" << std::endl;
+	std::cout << "[" << node << "]" << std::endl;
 
 	// check valid assignments 
 	checkValidKey(node);
