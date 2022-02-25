@@ -1,7 +1,8 @@
 #include "Header/ConfigParser.h"
 
-ConfigParser::ConfigParser()
-	: config(YAML::LoadFile("config.yaml"))
+ConfigParser::ConfigParser(Evaluator* evaluator)
+	: config(YAML::LoadFile("config.yaml")),
+	evaluator(evaluator)
 {
 	try 
 	{
@@ -14,14 +15,14 @@ ConfigParser::ConfigParser()
 	}
 	std::cout << "successfully parsed yaml, evaluator stack successfully initialized" << std::endl;
 
-	// evaluator.stack_print(); // use to print stack information
+	 evaluator->stack_print(); // use to print stack information
 
 }
 
 // Recursively called to get deepest root
 void ConfigParser::parseyaml(const YAML::Node &node, int level)
 {
-	std::cout << "[" << node << "]" << std::endl;
+	//std::cout << "[" << node << "]" << std::endl;
 
 	// check valid assignments 
 	checkValidKey(node);
@@ -34,7 +35,7 @@ void ConfigParser::parseyaml(const YAML::Node &node, int level)
 	if (!node["exp2"].IsMap()) expr2 = node["exp2"].as<std::string>();
 	expr_list.push_back(expr1); expr_list.push_back(expr2);
 	std::string node_operator = node["cond"].as<std::string>();
-	evaluator.push_stk(new Node(expr_list, node_operator, level));
+	evaluator->push_stk(new Node(expr_list, node_operator, level));
 	// Begin recursive calls
 	if (node["exp1"].IsMap()) 
 	{

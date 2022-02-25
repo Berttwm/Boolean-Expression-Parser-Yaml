@@ -14,13 +14,12 @@ class ConfigParser
 {
 
 public:
-	ConfigParser();
+	ConfigParser(Evaluator *evaluator);
 
 private:	
 	void parseyaml(const YAML::Node& node, int level); 
 	void checkValidKey(const YAML::Node& node);
 	YAML::Node config;
-	Evaluator evaluator;
-
+	Evaluator *evaluator;
 };
 

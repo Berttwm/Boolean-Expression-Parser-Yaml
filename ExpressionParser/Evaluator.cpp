@@ -2,7 +2,6 @@
 
 Evaluator::Evaluator() {
 	// instantiate size of evaluated_nodes_vector
-	
 }
 // evaluate
 void Evaluator::evaluate()
@@ -10,7 +9,7 @@ void Evaluator::evaluate()
 	while (!eval_stack.empty())
 	{
 		Node *curr_node = eval_stack.top();
-
+		// TODO: Finish evaluation steps
 		eval_stack.pop();
 	}
 }

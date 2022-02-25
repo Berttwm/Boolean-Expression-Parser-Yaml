@@ -6,7 +6,8 @@ int main()
 {
 
 	// Create ConfigParser
-	ConfigParser *CP = new ConfigParser;
-
+	Evaluator *evaluator = new Evaluator();
+	ConfigParser *CP = new ConfigParser(evaluator);
+	
 	return 0;
 }
