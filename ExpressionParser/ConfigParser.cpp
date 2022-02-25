@@ -11,8 +11,9 @@ ConfigParser::ConfigParser()
 	{
 		std::cout << e.what() << std::endl;
 		throw e;
+		exit(EXIT_FAILURE);
 	}
-	std::cout << "successfully parsed yaml and created Tree" << std::endl;
+	std::cout << std::string("successfully parsed yaml and created Tree") + std::string(" ready for next task") << std::endl;
 }
 
 Node *ConfigParser::getTreeBaseNode() // Retrieve Tree's baseNode

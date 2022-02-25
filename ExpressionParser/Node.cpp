@@ -12,9 +12,9 @@ Node::Node(std::vector<Node*> childNodes, std::string nodeOperator, int level) :
 Node::Node(int result, int level) :
 	result(result),
 	level(level),
-	num_child(0) // Comment out if you don't want Node Stats
+	num_child(0) 
 {
-	node_print();
+	node_print(); // Comment out if you don't want Node Stats
 }
 
 // Getters:

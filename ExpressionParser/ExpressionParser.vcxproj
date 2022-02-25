@@ -47,7 +47,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <UseDebugLibraries>false</UseDebugLibraries>
+    <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v142</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
@@ -80,7 +80,7 @@
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <LinkIncremental>false</LinkIncremental>
+    <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -93,8 +93,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -115,8 +115,8 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -133,8 +133,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -143,20 +143,26 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FunctionLevelLinking>
+      </FunctionLevelLinking>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
-      <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>
+      </EnableCOMDATFolding>
+      <OptimizeReferences>
+      </OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>

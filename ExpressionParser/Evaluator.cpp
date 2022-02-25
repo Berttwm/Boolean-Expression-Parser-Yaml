@@ -14,7 +14,16 @@ int Evaluator::processTree(Node* currNode)
 	{
 		result_list.push_back(processTree(currNode->getChildNodesList()[i]));
 	}
-	return evaluate(currNode->getNodeOperator(), result_list);
+	try 
+	{
+		return evaluate(currNode->getNodeOperator(), result_list);
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+		exit(EXIT_FAILURE);
+	}
+	
 }
 int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
 {
@@ -23,7 +32,7 @@ int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
 		// correct operator used
 		if (nodeOperator.compare("OR") == 0)
 		{
-			std::cout << "Evaluating " << result_list[0] << " OR " << result_list[1] << std::endl;
+			std::cout << "Evaluating " << result_list[0] << " AND " << result_list[1] << std::endl;
 			return result_list[0] | result_list[1]; // TODO: Change the hard-code
 		}
 		if (nodeOperator.compare("AND") == 0) 
@@ -34,8 +43,9 @@ int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
 	}
 	else 
 	{
-		throw std::runtime_error("Error in evaluation: node_operator type of: " + nodeOperator + " is not acceptable");
+		throw std::runtime_error(std::string("Error in evaluation: Not acceptable node_operator of type: ") + nodeOperator);
 	}
+	return -1; // wrong condition
 }
 
 
