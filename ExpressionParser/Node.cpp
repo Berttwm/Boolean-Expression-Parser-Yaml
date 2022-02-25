@@ -6,14 +6,15 @@ Node::Node(std::vector<Node*> childNodes, std::string node_operator, int level) 
 	level(level),
 	num_args(childNodes.size())
 {
+	node_print(); // Comment out if you don't want Node Stats
 }
 
-Node::Node(int result, std::string node_operator, int level) :
+Node::Node(int result, int level) :
 	result(result),
-	node_operator(node_operator),
 	level(level),
-	num_args(0) // should be 0 child ==> 0 args
+	num_args(0) // Comment out if you don't want Node Stats
 {
+	node_print();
 }
 
 // Auxilary functions
@@ -21,10 +22,8 @@ Node::Node(int result, std::string node_operator, int level) :
 // TODO: Fixed debug node print
 void Node::node_print()
 {
-	std::cout << "Level: " << level << ", ";
-	for (int i = 0; i < childNodes.size(); i++)
-	{
-		//std::cout << "Expr" << i+1 << ": " << expr_list[i] << ", ";
-	}
-	std::cout << "operator: " << node_operator;
+	std::cout << "[Level: " << level << ", ";
+	std::cout << "result: " << this->result << ", ";
+	std::cout << "num_args to eval: " << this->num_args << ", ";
+	std::cout << "operator: " << node_operator << "]" << std::endl;
 }

@@ -1,18 +1,20 @@
 #pragma once
 #include <stack>
 #include <vector>
+#include <unordered_set>
 
 #include "Node.h"
 
 class Evaluator {
+	/* Fixed configurators */
+	const std::unordered_set<std::string> available_operators_str{"OR", "AND"};
 public:
 	Evaluator(Node* baseNode);
 
+	// Use DFS to process
+	void processTree();
+	// Evaluate ready Nodes
 	void evaluate();
-
-	// Stack operations
-	void push_stk(Node *node);
-	Node *pop_stk();
 
 	// Auxilary functions
 	void stack_print();
@@ -20,7 +22,7 @@ public:
 
 private:
 	Node* baseNode;
-	std::stack<Node*> eval_stack;
+	std::stack<Node*> stack;
 	// assuming int is the result of output
 
 };

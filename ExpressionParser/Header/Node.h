@@ -6,7 +6,7 @@
 class Node {
 public:
 	Node(std::vector<Node*> childNodes, std::string node_operator, int level); // For creating nodes with child
-	Node(int result, std::string node_operator, int level); // For creating leaf nodes with no child
+	Node(int result, int level); // For creating leaf nodes with no child
 	// Auxilary functions
 	void node_print();
 private:

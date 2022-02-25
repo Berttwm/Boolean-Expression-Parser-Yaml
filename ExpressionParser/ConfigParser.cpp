@@ -20,7 +20,7 @@ Node *ConfigParser::getTreeBaseNode() // Retrieve Tree's baseNode
 	return this->baseNode;
 }
 
-// Recursively called to get deepest root
+// Recursively called to get deepest root -- PostOrder Traversal (start from deepest left root)
 Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 {
 	//std::cout << "[" << node << "]" << std::endl;
@@ -43,7 +43,7 @@ Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 	{ 	// Handles case when result is available (i.e., no childNodes expression)
 		std::string result_str = node["exp1"].as<std::string>();
 		int result = stoi(result_str);
-		childNodes.push_back(new Node(result, node_operator, level + 1));
+		childNodes.push_back(new Node(result, level + 1));
 	}
 	if (node["exp2"].IsMap()) 
 	{
@@ -52,9 +52,9 @@ Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 	}
 	else
 	{   // Handles case when result is available (i.e., no childNodes expression)
-		std::string result_str = node["exp1"].as<std::string>();
+		std::string result_str = node["exp2"].as<std::string>();
 		int result = stoi(result_str);
-		childNodes.push_back(new Node(result, node_operator, level + 1));
+		childNodes.push_back(new Node(result, level + 1));
 	}
 	return new Node(childNodes, node_operator, level);
 }
