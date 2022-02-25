@@ -1,8 +1,7 @@
 #include "Header/ConfigParser.h"
 
-ConfigParser::ConfigParser(Evaluator* evaluator)
-	: config(YAML::LoadFile("config.yaml")),
-	evaluator(evaluator)
+ConfigParser::ConfigParser()
+	: config(YAML::LoadFile("config.yaml"))
 {
 	try 
 	{
@@ -13,40 +12,54 @@ ConfigParser::ConfigParser(Evaluator* evaluator)
 		std::cout << e.what() << std::endl;
 		throw e;
 	}
-	std::cout << "successfully parsed yaml, evaluator stack successfully initialized" << std::endl;
+	std::cout << "successfully parsed yaml and created Tree" << std::endl;
+}
 
-	 evaluator->stack_print(); // use to print stack information
-
+Node *ConfigParser::getTreeBaseNode() // Retrieve Tree's baseNode
+{
+	return this->baseNode;
 }
 
 // Recursively called to get deepest root
-void ConfigParser::parseyaml(const YAML::Node &node, int level)
+Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 {
 	//std::cout << "[" << node << "]" << std::endl;
 
 	// check valid assignments 
 	checkValidKey(node);
 	
-	// Prepare new node
-	std::string expr1 = "Expect1";
-	std::string expr2 = "Expect2";
-	std::vector<std::string> expr_list;
+	// Prepare nodes
+	std::string expr1, expr2;
 	if (!node["exp1"].IsMap()) expr1 = node["exp1"].as<std::string>();
 	if (!node["exp2"].IsMap()) expr2 = node["exp2"].as<std::string>();
-	expr_list.push_back(expr1); expr_list.push_back(expr2);
 	std::string node_operator = node["cond"].as<std::string>();
-	evaluator->push_stk(new Node(expr_list, node_operator, level));
+	
+	std::vector<Node*> childNodes;
 	// Begin recursive calls
+	// TODO: Accept variable arguments/expressions
 	if (node["exp1"].IsMap()) 
 	{
 		const YAML::Node temp = node["exp1"];
-		parseyaml(temp, level + 1);
+		childNodes.push_back(parseyaml(temp, level + 1)); // TO CONFIRM: check if direct call works
+	}
+	else 
+	{ 	// Handles case when result is available (i.e., no childNodes expression)
+		std::string result_str = node["exp1"].as<std::string>();
+		int result = stoi(result_str);
+		childNodes.push_back(new Node(result, node_operator, level + 1));
 	}
 	if (node["exp2"].IsMap()) 
 	{
 		const YAML::Node temp = node["exp2"];
-		parseyaml(temp, level + 1);
+		childNodes.push_back(parseyaml(temp, level + 1));
 	}
+	else
+	{   // Handles case when result is available (i.e., no childNodes expression)
+		std::string result_str = node["exp1"].as<std::string>();
+		int result = stoi(result_str);
+		childNodes.push_back(new Node(result, node_operator, level + 1));
+	}
+	return new Node(childNodes, node_operator, level);
 }
 
 void ConfigParser::checkValidKey(const YAML::Node& node)

@@ -1,2 +1,7 @@
 ﻿  ConfigParser.cpp
+  Evaluator.cpp
+  Node.cpp
+C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Node.cpp(8,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  main.cpp
+  Generating Code...
   ExpressionParser.vcxproj -> C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\x64\Debug\ExpressionParser.exe

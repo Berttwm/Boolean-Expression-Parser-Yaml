@@ -1,11 +1,14 @@
 #include "Header/Evaluator.h"
 
-Evaluator::Evaluator() {
+Evaluator::Evaluator(Node *baseNode) 
+	: baseNode(baseNode)
+{
 	// instantiate size of evaluated_nodes_vector
 }
 // evaluate
 void Evaluator::evaluate()
 {
+	std::cout << "Begin evaluating Tree" << std::endl;
 	while (!eval_stack.empty())
 	{
 		Node *curr_node = eval_stack.top();
@@ -23,15 +26,6 @@ Node *Evaluator::pop_stk()
 {
 	Node *result_node = eval_stack.top();
 	return result_node;
-}
-// Results vector operations
-void Evaluator::add_results(int level, int column, int results)
-{
-	results_vector[level][column] = results;
-}
-int Evaluator::remove_results(int level, int column)
-{
-	return results_vector[level][column];
 }
 
 // Auxilary functions

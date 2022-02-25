@@ -1,9 +1,15 @@
-exp1: "1"
-exp2:
-  exp1: 
+exp1: 
+  exp1: "1"
+  exp2: 
     exp1: "0"
-    exp2: "1"
-    cond: "XOR"
-  exp2: "0"
+    exp2: "0" 
+    cond: "AND"
+  cond: "OR"
+exp2:
+  exp1: "1"
+  exp2: 
+    exp1: "1"
+    exp2: "0" 
+    cond: "OR"
   cond: "AND"
-cond: "OR"
+cond: "OR"  
