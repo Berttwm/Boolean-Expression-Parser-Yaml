@@ -47,28 +47,3 @@ int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
 	}
 	return -1; // wrong condition
 }
-
-
-// Auxilary functions
-void Evaluator::stack_print() 
-{
-	std::cout << "printing evalutor stack stats..." << std::endl;
-	// to reuse stack, we create another stack
-	std::stack<Node *> temp_stack;
-	std::cout << "Top: " << std::endl;
-	while (!stack.empty())
-	{
-		Node *elem = stack.top();
-		temp_stack.push(elem);
-		stack.pop();
-		elem->node_print();
-
-	}
-	std::cout << "Bot: " << std::endl;
-	// push elements back to original eval_stack
-	while (!temp_stack.empty()) 
-	{
-		stack.push(temp_stack.top());
-		temp_stack.pop();
-	}
-}

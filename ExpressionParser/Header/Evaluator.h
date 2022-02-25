@@ -16,13 +16,6 @@ public:
 	// Evaluate ready Nodes
 	int evaluate(std::string nodeOperator, std::vector<int> result_list);
 
-	// Auxilary functions
-	void stack_print();
-
-
 private:
 	Node* baseNode;
-	std::stack<Node*> stack;
-	// assuming int is the result of output
-
 };
