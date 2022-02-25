@@ -10,7 +10,6 @@ ConfigParser::ConfigParser()
 	catch (const std::exception& e)
 	{
 		std::cout << e.what() << std::endl;
-		throw e;
 		exit(EXIT_FAILURE);
 	}
 	std::cout << std::string("successfully parsed yaml and created Tree") + std::string(" ready for next task") << std::endl;

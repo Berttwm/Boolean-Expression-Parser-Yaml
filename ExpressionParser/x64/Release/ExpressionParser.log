@@ -1,4 +1,8 @@
-﻿  Evaluator.cpp
+﻿  ConfigParser.cpp
+C:\Users\User\Desktop\ExpressionParser\Flow Based Evaluator\ExpressionParser\Header\ConfigParser.h(6,10): fatal error C1083: Cannot open include file: 'yaml-cpp/yaml.h': No such file or directory
   main.cpp
+C:\Users\User\Desktop\ExpressionParser\Flow Based Evaluator\ExpressionParser\Header\ConfigParser.h(6,10): fatal error C1083: Cannot open include file: 'yaml-cpp/yaml.h': No such file or directory
+  Node.cpp
+C:\Users\User\Desktop\ExpressionParser\Flow Based Evaluator\ExpressionParser\Node.cpp(8,1): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Evaluator.cpp
   Generating Code...
-  ExpressionParser.vcxproj -> C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\x64\Release\ExpressionParser.exe
