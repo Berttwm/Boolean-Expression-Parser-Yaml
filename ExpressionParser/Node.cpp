@@ -23,7 +23,7 @@ int Node::getResult()
 	return this->result;
 }
 
-int Node::getNumChild()
+size_t Node::getNumChild()
 {
 	return this->num_child;
 }

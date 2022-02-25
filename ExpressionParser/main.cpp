@@ -1,4 +1,5 @@
 #include <iostream>
+#include <opencv2/core/core.hpp>
 
 #include "Header/ConfigParser.h"
 #include "Header/Evaluator.h"

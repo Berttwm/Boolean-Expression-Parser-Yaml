@@ -94,7 +94,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>./Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib;opencv_world455.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -116,7 +116,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>./Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalDependencies>yaml-cppd.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib;opencv_world455.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -128,13 +128,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\Include;;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>./Include;;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;opencv_world455.lib</AdditionalDependencies>
     </Link>
     <ProjectReference>
       <UseLibraryDependencyInputs>true</UseLibraryDependencyInputs>
@@ -160,8 +160,8 @@
       <OptimizeReferences>
       </OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>./Include;;C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Include</AdditionalLibraryDirectories>
-      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>./Include</AdditionalLibraryDirectories>
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);yaml-cppd.lib;yaml-cppd.lib;yaml-cppd.lib;opencv_world455.lib</AdditionalDependencies>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
     <ProjectReference>

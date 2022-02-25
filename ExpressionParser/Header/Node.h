@@ -9,7 +9,7 @@ public:
 	Node(int result, int level); // For creating leaf nodes with no child
 	// Getters:
 	int getResult();
-	int getNumChild();
+	size_t getNumChild();
 	std::vector<Node*> getChildNodesList();
 	std::string getNodeOperator();
 
@@ -18,7 +18,7 @@ public:
 	void node_print();
 private:
 	int result = -1; // -1 imply result not ready, only set upon empty childNodes OR evaluated childNodes
-	int num_child; // inferred during parsing
+	size_t num_child; // inferred during parsing
 	std::vector<Node*> childNodes; // NULL for no child
 	std::string nodeOperator;
 
