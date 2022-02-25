@@ -1,24 +1,41 @@
 #include "Header/Evaluator.h"
 
-Evaluator::Evaluator(Node *baseNode) 
-	: baseNode(baseNode)
+Evaluator::Evaluator() 
 {
-	// instantiate size of evaluated_nodes_vector
 }
 // DFS approach to tree search
-void Evaluator::processTree()
+int Evaluator::processTree(Node* currNode)
 {
-	std::cout << "Begin evaluating Tree" << std::endl;
-	while (!stack.empty())
-	{
-		Node *curr_node = stack.top();
-		// TODO: Finish evaluation steps
-		stack.pop();
-	}
-}
-void Evaluator::evaluate()
-{
+	if (currNode->getResult() != -1) // if leaf node, simply return result
+		return currNode->getResult();
 
+	std::vector<int> result_list;
+	for (size_t i = 0; i < currNode->getNumChild(); i++)
+	{
+		result_list.push_back(processTree(currNode->getChildNodesList()[i]));
+	}
+	return evaluate(currNode->getNodeOperator(), result_list);
+}
+int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
+{
+	// TODO: Abstract Operation to Operator class
+	if (available_operators_str.find(nodeOperator) != available_operators_str.end()) {
+		// correct operator used
+		if (nodeOperator.compare("OR") == 0)
+		{
+			std::cout << "Evaluating " << result_list[0] << " OR " << result_list[1] << std::endl;
+			return result_list[0] | result_list[1]; // TODO: Change the hard-code
+		}
+		if (nodeOperator.compare("AND") == 0) 
+		{
+			std::cout << "Evaluating " << result_list[0] << " AND " << result_list[1] << std::endl;
+			return result_list[0] & result_list[1]; // TODO: Change the hard-code
+		}
+	}
+	else 
+	{
+		throw std::runtime_error("Error in evaluation: node_operator type of: " + nodeOperator + " is not acceptable");
+	}
 }
 
 

@@ -1,4 +1,3 @@
 ﻿  Evaluator.cpp
-  main.cpp
-  Generating Code...
+C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\Evaluator.cpp(39): warning C4715: 'Evaluator::evaluate': not all control paths return a value
   ExpressionParser.vcxproj -> C:\Users\User\Desktop\ExpressionParser\Boolean-Expression-Parser-Yaml\ExpressionParser\x64\Debug\ExpressionParser.exe

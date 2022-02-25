@@ -1,10 +1,10 @@
 #include "Header/Node.h"
 
-Node::Node(std::vector<Node*> childNodes, std::string node_operator, int level) :
+Node::Node(std::vector<Node*> childNodes, std::string nodeOperator, int level) :
 	childNodes(childNodes),
-	node_operator(node_operator),
+	nodeOperator(nodeOperator),
 	level(level),
-	num_args(childNodes.size())
+	num_child(childNodes.size())
 {
 	node_print(); // Comment out if you don't want Node Stats
 }
@@ -12,18 +12,42 @@ Node::Node(std::vector<Node*> childNodes, std::string node_operator, int level) 
 Node::Node(int result, int level) :
 	result(result),
 	level(level),
-	num_args(0) // Comment out if you don't want Node Stats
+	num_child(0) // Comment out if you don't want Node Stats
 {
 	node_print();
 }
 
+// Getters:
+int Node::getResult()
+{
+	return this->result;
+}
+
+int Node::getNumChild()
+{
+	return this->num_child;
+}
+
+std::vector<Node*> Node::getChildNodesList()
+{
+	return this->childNodes;
+}
+
+std::string Node::getNodeOperator()
+{
+	return this->nodeOperator;
+}
+
 // Auxilary functions
-// node_print not ready for use
-// TODO: Fixed debug node print
+bool Node::isResultReady()
+{ // Node is a leaf when result is ready && there are 0 childNode
+	return((this->result != -1));
+}
+
 void Node::node_print()
 {
 	std::cout << "[Level: " << level << ", ";
 	std::cout << "result: " << this->result << ", ";
-	std::cout << "num_args to eval: " << this->num_args << ", ";
-	std::cout << "operator: " << node_operator << "]" << std::endl;
+	std::cout << "num_args to eval: " << this->num_child << ", ";
+	std::cout << "operator: " << nodeOperator << "]" << std::endl;
 }

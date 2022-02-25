@@ -9,12 +9,12 @@ class Evaluator {
 	/* Fixed configurators */
 	const std::unordered_set<std::string> available_operators_str{"OR", "AND"};
 public:
-	Evaluator(Node* baseNode);
+	Evaluator();
 
-	// Use DFS to process
-	void processTree();
+	// Use DFS - PostOrder processing to process
+	int processTree(Node* currNode);
 	// Evaluate ready Nodes
-	void evaluate();
+	int evaluate(std::string nodeOperator, std::vector<int> result_list);
 
 	// Auxilary functions
 	void stack_print();

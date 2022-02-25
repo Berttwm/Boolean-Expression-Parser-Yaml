@@ -29,7 +29,7 @@ Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 	checkValidKey(node);
 	
 	// Prepare child nodes
-	std::string node_operator = node["cond"].as<std::string>();
+	std::string nodeOperator = node["cond"].as<std::string>();
 	
 	std::vector<Node*> childNodes;
 	// Begin recursive calls
@@ -56,18 +56,18 @@ Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 		int result = stoi(result_str);
 		childNodes.push_back(new Node(result, level + 1));
 	}
-	return new Node(childNodes, node_operator, level);
+	return new Node(childNodes, nodeOperator, level);
 }
 
 void ConfigParser::checkValidKey(const YAML::Node& node)
 {
 	if (!node["exp1"]) {
-		throw std::runtime_error("Error: Config file does not contafin exp1 key");
+		throw std::runtime_error("Error in Parsing: Config file does not contafin exp1 key");
 	} 
 	if (!node["exp2"]) {
-		throw std::runtime_error("Error: Config file does not contain exp2 key");
+		throw std::runtime_error("Error in Parsing: Config file does not contain exp2 key");
 	}
 	if (!node["cond"]) {
-		throw std::runtime_error("Error: Config file does not contain cond key");
+		throw std::runtime_error("Error in Parsing: Config file does not contain cond key");
 	}
 }
