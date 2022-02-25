@@ -19,7 +19,7 @@ public:
 	Node *getTreeBaseNode();
 
 private:	
-	Node *parseyaml(const YAML::Node& node, int level); 
+	Node *parseyaml(const YAML::Node& node, int level); // parses YAML while preparing Tree base node
 	void checkValidKey(const YAML::Node& node);
 	YAML::Node config;
 	Node *baseNode; // baseNode of Tree responsible for eventual result

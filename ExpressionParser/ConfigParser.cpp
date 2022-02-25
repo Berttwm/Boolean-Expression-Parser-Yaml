@@ -5,7 +5,7 @@ ConfigParser::ConfigParser()
 {
 	try 
 	{
-		parseyaml(config, 0);
+		baseNode = parseyaml(config, 0);
 	}
 	catch (const std::exception& e)
 	{
@@ -28,10 +28,7 @@ Node *ConfigParser::parseyaml(const YAML::Node &node, int level)
 	// check valid assignments 
 	checkValidKey(node);
 	
-	// Prepare nodes
-	std::string expr1, expr2;
-	if (!node["exp1"].IsMap()) expr1 = node["exp1"].as<std::string>();
-	if (!node["exp2"].IsMap()) expr2 = node["exp2"].as<std::string>();
+	// Prepare child nodes
 	std::string node_operator = node["cond"].as<std::string>();
 	
 	std::vector<Node*> childNodes;
