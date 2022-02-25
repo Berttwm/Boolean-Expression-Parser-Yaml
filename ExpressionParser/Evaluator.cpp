@@ -32,7 +32,7 @@ int Evaluator::evaluate(std::string nodeOperator, std::vector<int> result_list)
 		// correct operator used
 		if (nodeOperator.compare("OR") == 0)
 		{
-			std::cout << "Evaluating " << result_list[0] << " AND " << result_list[1] << std::endl;
+			std::cout << "Evaluating " << result_list[0] << " OR " << result_list[1] << std::endl;
 			return result_list[0] | result_list[1]; // TODO: Change the hard-code
 		}
 		if (nodeOperator.compare("AND") == 0) 
